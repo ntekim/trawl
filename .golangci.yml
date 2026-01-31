@@ -7,13 +7,13 @@ run:
 linters:
   # Enable the most important linters for a concurrent Go project
   enable:
-    - errcheck    # Checks for unhandled errors (Critical)
-    - gosimple    # Suggests code simplifications
-    - govet       # Reports suspicious constructs (e.g. printf mistakes)
-    - staticcheck # Advanced static analysis
-    - unused      # Checks for unused constants, variables, types and functions
-    - bodyclose   # Checks if HTTP response bodies are closed (Crucial for Scrapers)
-    - misspell    # Checks for common misspellings
+    - errcheck
+    - staticcheck # Now includes the logic of gosimple and others
+    - govet
+    - unused
+    - modernize   # The new standard for v2 (replaces many style linters)
+    - bodyclose
+    - misspell
 
   settings:
     govet:
