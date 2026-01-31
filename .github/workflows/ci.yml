@@ -1,0 +1,39 @@
+name: Trawl CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+          cache: true # Caches dependencies for faster builds
+
+      - name: Install dependencies
+        run: go mod download
+
+      - name: Run Linter
+        uses: golangci/golangci-lint-action@v4
+        with:
+          version: latest
+          # We'll create the .golangci.yml file next to control rules
+
+      - name: Run Tests
+        run: go test -v -race -covermode=atomic ./...
+
+      - name: Build Binary
+        run: go build -v -o trawl-bin ./cmd/trawl/main.go
+
+      # This ensures the Dockerfile is valid, but doesn't push it yet
+      - name: Test Docker Build
+        run: docker build . -t trawl:latest

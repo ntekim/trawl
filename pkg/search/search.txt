@@ -1,0 +1,1 @@
+# Search Engine Adapters (Typesense, Algolia)
