@@ -1,9 +1,9 @@
 # Trawl 🛰️
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/username/trawl.svg)](https://pkg.go.dev/github.com/username/trawl)
-[![Go Report Card](https://goreportcard.com/badge/github.com/username/trawl)](https://goreportcard.com/report/github.com/username/trawl)
-![Build Status](https://img.shields.io/github/actions/workflow/status/username/trawl/ci.yml)
-![License](https://img.shields.io/github/license/username/trawl)
+[![Go Reference](https://pkg.go.dev/badge/github.com/ntekim/trawl.svg)](https://pkg.go.dev/github.com/ntekim/trawl)
+[![Go Report Card](https://goreportcard.com/badge/github.com/ntekim/trawl)](https://goreportcard.com/report/github.com/ntekim/trawl)
+![Build Status](https://img.shields.io/github/actions/workflow/status/ntekim/trawl/ci.yml)
+![License](https://img.shields.io/github/license/ntekim/trawl)
 
 **Trawl** is a high-performance, platform-agnostic ETL pipeline designed to bridge the gap between unstructured web data and modern search engines. Built with Go's high-concurrency primitives, Trawl allows you to scrape, normalize, and index thousands of records into engines like **Typesense**, **Algolia**, or **Elasticsearch** with minimal latency.
 
@@ -45,11 +45,11 @@ graph LR
 Integrate Trawl's concurrency engine directly into your Go application.
 
 ```bash
-go get github.com/username/trawl
+go get github.com/ntekim/trawl
 ```
 
 ```go
-import "github.com/username/trawl/pkg/engine"
+import "github.com/ntekim/trawl/pkg/engine"
 
 func main() {
     t := engine.New(engine.Config{
@@ -64,7 +64,7 @@ func main() {
 Download and install the binary.
 
 ```bash
-go install github.com/username/trawl/cmd/trawl@latest
+go install github.com/ntekim/trawl/cmd/trawl@latest
 ```
 
 ---
@@ -135,7 +135,7 @@ Trawl is open-source. We love PRs!
 
 ## 📄 License
 
-Distributed under the Apache 2.0 License. See `LICENSE` for more information.
+Distributed under the Apache-2.0 License. See `LICENSE` for more information.
 
 ---
 
