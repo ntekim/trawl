@@ -1,1 +1,35 @@
 # Linter configuration
+version: "2"
+run:
+  timeout: 5m
+  modules-download-mode: readonly
+
+linters:
+  # Enable the most important linters for a concurrent Go project
+  enable:
+    - errcheck    # Checks for unhandled errors (Critical)
+    - gosimple    # Suggests code simplifications
+    - govet       # Reports suspicious constructs (e.g. printf mistakes)
+    - staticcheck # Advanced static analysis
+    - unused      # Checks for unused constants, variables, types and functions
+    - bodyclose   # Checks if HTTP response bodies are closed (Crucial for Scrapers)
+    - misspell    # Checks for common misspellings
+
+  settings:
+    govet:
+      settings:
+        shadow:
+          strict: true # Enable strict shadowing checks
+    errcheck:
+      check-blank: true # Don't allow _ = function() without a good reason
+  
+  exclusions:
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling 
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0

@@ -26,8 +26,7 @@ jobs:
         uses: golangci/golangci-lint-action@v4
         with:
           version: latest
-          # We'll create the .golangci.yml file next to control rules
-
+          args: --config=.golangci.yml
       - name: Run Tests
         run: go test -v -race -covermode=atomic ./...
 
